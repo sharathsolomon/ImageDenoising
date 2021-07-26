@@ -27,7 +27,7 @@ def models():
     st.subheader('You can predict on sample images or you can upload a noisy image and get its denoised output.')
     
     #col1,col2 = st.beta_columns(2)
-    selection=st.sidebar.selectbox("Choose how to load image",["Predict on sample Images","Upload an Image"])
+    selection=st.selectbox("Choose how to load image",["Predict on sample Images","Upload an Image"])
     
     if selection=="Upload an Image":
         image = st.file_uploader('Upload the image below')
@@ -43,7 +43,7 @@ def models():
     #sample_data = col2.button('Predict on sample images')
     
     if selection=='Predict on sample Images':
-        option = st.sidebar.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
+        option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
         nsy_img = cv2.imread(option+'.jpg')
         prediction(nsy_img)
