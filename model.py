@@ -72,8 +72,7 @@ def prediction(img):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = cv2.resize(img,(1024,1024))
     img = img.astype("float32") / 255.0
-    st.subheader("Noisy Image")
-    st.image(img) 
+
     img_patches = patches(img,256)
     
     nsy=[]
@@ -94,6 +93,10 @@ def prediction(img):
     #with col2:
     #    st.header("Predicted Image")
     #    st.image(pred_img)    
+    img = cv2.resize(img,(256,256))
+    pred_img = cv2.resize(pred_img,(256,256))
+    st.subheader("Noisy Image")
+    st.image(img) 
     st.subheader("Predicted Image")
     st.image(pred_img)   
     st.write('Time taken for prediction :', str(round(end-start,3))+' seconds')
