@@ -50,9 +50,9 @@ def models():
             nsy_img = cv2.imdecode(file_bytes, 1)
             #nsy_img = cv2.imread(image)
             #st.image(nsy_img,channels='RGB')
-            nsy_img = cv2.cvtColor(nsy_img, cv2.COLOR_BGR2RGB)
-            st.subheader('Noisy Image')
-            st.image(nsy_img)
+            #nsy_img = cv2.cvtColor(nsy_img, cv2.COLOR_BGR2RGB)
+            #st.subheader('Noisy Image')
+            #st.image(nsy_img)
             prediction(nsy_img)
         else:
             st.text('Please upload the image')    
@@ -69,10 +69,11 @@ def get_model():
 def prediction(img):
     model = get_model()
     start = time.time()
-    #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = cv2.resize(img,(1024,1024))
     img = img.astype("float32") / 255.0
-    
+    st.subheader("Noisy Image")
+    st.image(img) 
     img_patches = patches(img,256)
     
     nsy=[]
@@ -92,7 +93,7 @@ def prediction(img):
     #    st.image(img)
     #with col2:
     #    st.header("Predicted Image")
-    #    st.image(pred_img)
+    #    st.image(pred_img)    
     st.subheader("Predicted Image")
     st.image(pred_img)   
     st.write('Time taken for prediction :', str(round(end-start,3))+' seconds')
