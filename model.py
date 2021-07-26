@@ -16,7 +16,7 @@ def main():
         
     #readme_text = st.markdown(get_file_content_as_string("README.md"))
     
-    if selected_box == 'Evaluate the model':
+    if selected_box == 'Use the App':
         #readme_text.empty()
         models()
         
