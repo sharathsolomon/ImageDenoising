@@ -7,6 +7,7 @@ import time
 import os
 from patchify import patchify, unpatchify
 import matplotlib.pyplot as plt
+import base64
 
 def main():
     selected_box = st.sidebar.selectbox(
