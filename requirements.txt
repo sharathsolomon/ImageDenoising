@@ -1,3 +1,3 @@
 tensorflow
-cv2
+opencv-python
 patchify
