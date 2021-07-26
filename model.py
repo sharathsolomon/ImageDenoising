@@ -93,12 +93,12 @@ def prediction(img):
     #with col2:
     #    st.header("Predicted Image")
     #    st.image(pred_img)    
-    img = cv2.resize(img,(256,256))
-    pred_img = cv2.resize(pred_img,(256,256))
+    img = cv2.resize(img,(512,512))
+    pred_img = cv2.resize(pred_img,(512,512))
     st.subheader("Noisy Image")
-    st.image(img) 
+    cv2.imshow(img) 
     st.subheader("Predicted Image")
-    st.image(pred_img)   
+    cv2.imshow(pred_img)   
     st.write('Time taken for prediction :', str(round(end-start,3))+' seconds')
     
 if __name__ == "__main__":
