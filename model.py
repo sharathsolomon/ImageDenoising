@@ -35,10 +35,11 @@ def models():
     if sample_data:
         option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
-        st.subheader(option)
-        nsy_img = cv2.imread(option+'.jpg')
-        st.image(nsy_img)
-        prediction(nsy_img)
+        if option:
+            st.subheader(option)
+            nsy_img = cv2.imread(option+'.jpg')
+            st.image(nsy_img)
+            prediction(nsy_img)
         
     elif predict_button:
         if image is not None:
