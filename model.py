@@ -42,8 +42,11 @@ def models():
     if selection=='Predict on sample Images':
         option = st.selectbox('Select a sample image',('<select>','Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
-        nsy_img = cv2.imread(option+'.jpg')
-        prediction(nsy_img)
+        if option=='<select>':
+            pass
+        else:
+            nsy_img = cv2.imread(option+'.jpg')
+            prediction(nsy_img)
             
 def patches(img,patch_size):
   patches = patchify(img, (patch_size, patch_size, 3), step=patch_size)
