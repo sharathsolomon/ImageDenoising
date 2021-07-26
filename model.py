@@ -2,7 +2,6 @@ import streamlit as st
 import cv2 
 import numpy as np    
 import tensorflow as tf
-#import pandas as pd
 import time
 #from PIL import Image
 import os
@@ -26,24 +25,22 @@ def models():
     st.title("Image Denoising using Deep Learning")
     st.subheader('You can predict on sample images or you can upload a noisy image and get its denoised output.')
     
-    #col1,col2 = st.beta_columns(2)
-    selection=st.selectbox("Choose how to load image",["Predict on sample Images","Upload an Image"])
+    selection=st.selectbox("Choose how to load image",["<Select>","Upload an Image","Predict on sample Images"])
     
     if selection=="Upload an Image":
         image = st.file_uploader('Upload the image below')
         predict_button = st.button('Predict on uploaded image')
         #col1,col2 = st.beta_columns(2)
-        if image is not None:
-            file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
-            nsy_img = cv2.imdecode(file_bytes, 1)
-            prediction(nsy_img)
-        else:
-            st.text('Please upload the image')    
-        
-    #sample_data = col2.button('Predict on sample images')
+        if predict_button:
+            if image is not None:
+                file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
+                nsy_img = cv2.imdecode(file_bytes, 1)
+                prediction(nsy_img)
+            else:
+                st.text('Please upload the image')    
     
     if selection=='Predict on sample Images':
-        option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
+        option = st.selectbox('Select a sample image',('<select>','Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
         nsy_img = cv2.imread(option+'.jpg')
         prediction(nsy_img)
