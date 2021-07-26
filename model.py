@@ -84,7 +84,8 @@ def prediction(img):
         st.image(pred_img)
     st.write('Time taken for prediction :', str(round(end-start,3))+' seconds')
     
-    
+if __name__ == "__main__":
+    main()    
         
         
         
