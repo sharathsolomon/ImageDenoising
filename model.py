@@ -33,8 +33,11 @@ def models():
     sample_data = col2.button('Predict on sample images')
     
     if sample_data:
-        option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
+        #option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
+        col1,col2 = st.beta_columns(2)
+        option = col1.button('Toy car')
+        option = col2.button('Vegetables')
         st.subheader(option)
         nsy_img = cv2.imread(option+'.jpg')
         st.image(nsy_img)
