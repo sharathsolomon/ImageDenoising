@@ -35,11 +35,11 @@ def models():
     if sample_data:
         option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
-        if option == 'Toy car':
-            display(option)
-            #prediction(nsy_img)
-        elif option == 'Vegetables':
-            display(option)
+        st.subheader(option)
+        nsy_img = cv2.imread(option+'.jpg')
+        st.image(nsy_img)
+        prediction(nsy_img)
+        
             
     elif predict_button:
         if image is not None:
@@ -49,14 +49,7 @@ def models():
             #st.image(nsy_img,channels='RGB')
             prediction(nsy_img)
         else:
-            st.text('Please upload the image')
-
-def display(path):
-    st.subheader(path)
-    nsy_img = cv2.imread(path+'.jpg')
-    st.image(nsy_img)
-    prediction(nsy_img)
-        
+            st.text('Please upload the image')    
             
 def patches(img,patch_size):
   patches = patchify(img, (patch_size, patch_size, 3), step=patch_size)
