@@ -84,7 +84,7 @@ def prediction(img):
     
     pred_img = model.predict(nsy)
     pred_img = np.reshape(pred_img,(4,4,1,256,256,3))
-    pred_img = unpatchify(pred_img, img.shape)
+    pred_img = unpatchify(pred_img, nsy_img.shape)
     end = time.time()
     
     #col1,col2 = st.beta_columns(2)
