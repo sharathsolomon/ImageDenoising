@@ -54,6 +54,7 @@ def get_model():
     RIDNet=tf.keras.models.load_model('RIDNet.h5')
     return RIDNet
 
+@st.cache
 def prediction(img):
     model = get_model()
     start = time.time()
