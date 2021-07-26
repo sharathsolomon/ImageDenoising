@@ -35,7 +35,7 @@ def models():
     if sample_data:
         option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
-        nsy_img = cv2.imread(option)
+        nsy_img = cv2.imread(option+'.jpg')
         prediction(nsy_img)
         
     elif predict_button:
