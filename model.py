@@ -7,7 +7,7 @@ import time
 import os
 from patchify import patchify, unpatchify
 import matplotlib.pyplot as plt
-import base64
+from PIL import Image
 
 def main():
     selected_box = st.sidebar.selectbox(
@@ -17,19 +17,16 @@ def main():
         
     #readme_text = st.markdown(get_file_content_as_string("README.md"))
     if selected_box == 'About the App':
-        pdf_display = readme('Readme_app.pdf')
-        st.markdown(pdf_display, unsafe_allow_html=True)
-        
+        #st.title("Welcome to AI based Image Denoiser App!")
+        #st.header("Given a noisy image, this webapp will try to remove the noise from the image using Deep Learning.")
+        #st.header("How to use the App")
+        #st.subheader("On the right sidebar, there is a drop down option to make predictions. 
+        readme=Image('readme_app.PNG')
+        st.image(readme)
+                
     if selected_box == 'Use the App':
         #readme_text.empty()
         models()
-
-@st.cache        
-def readme(file_path):
-    with open(file_path,"rb") as f:
-          base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
-    return pdf_display
     
 def models():
     st.title("Image Denoising using Deep Learning")
