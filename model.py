@@ -21,7 +21,7 @@ def main():
         #st.header("Given a noisy image, this webapp will try to remove the noise from the image using Deep Learning.")
         #st.header("How to use the App")
         #st.subheader("On the right sidebar, there is a drop down option to make predictions. 
-        readme=Image('readme_app.PNG')
+        readme=Image.open('readme_app.PNG')
         st.image(readme)
                 
     if selected_box == 'Use the App':
