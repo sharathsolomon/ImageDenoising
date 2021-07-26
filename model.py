@@ -33,9 +33,9 @@ def models():
     sample_data = col2.button('Predict on sample images')
     
     if sample_data:
-        option = st.selectbox('Select a sample image'('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
-        path = os.path.join(os.getcwd(),'NOISY/')
-        nsy_img = cv2.imread(path+option)
+        option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
+        path = os.path.join(os.getcwd())#,'NOISY/')
+        nsy_img = cv2.imread(path+'/'+option)
         prediction(nsy_img)
         
     elif predict_button:
@@ -43,7 +43,7 @@ def models():
             file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
             nsy_img = cv2.imdecode(file_bytes, 1)
             #nsy_img = cv2.imread(image)
-            st.image(nsy_img,channels='RGB')
+            #st.image(nsy_img,channels='RGB')
             prediction(nsy_img)
         else:
             st.text('Please upload the image')
