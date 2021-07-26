@@ -2,3 +2,4 @@ tensorflow-cpu
 numpy
 opencv-python-headless
 patchify
+matplotlib
