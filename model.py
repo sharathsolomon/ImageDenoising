@@ -71,10 +71,10 @@ def prediction(img):
     model = get_model()
     start = time.time()
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    img = cv2.resize(img,(1024,1024))
-    img = img.astype("float32") / 255.0
+    nsy_img = cv2.resize(img,(1024,1024))
+    nsy_img = nsy_img.astype("float32") / 255.0
 
-    img_patches = patches(img,256)
+    img_patches = patches(nsy_img,256)
     
     nsy=[]
     for i in range(4):
