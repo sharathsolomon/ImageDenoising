@@ -54,7 +54,6 @@ def get_model():
     RIDNet=tf.keras.models.load_model('RIDNet.h5')
     return RIDNet
 
-@st.cache
 def prediction(img):
     model = get_model()
     start = time.time()
@@ -74,14 +73,7 @@ def prediction(img):
     pred_img = np.reshape(pred_img,(4,4,1,256,256,3))
     pred_img = unpatchify(pred_img, nsy_img.shape)
     end = time.time()
-    
-    #col1,col2 = st.beta_columns(2)
-    #with col1:
-    #    st.header("Noisy Image")
-    #    st.image(img)
-    #with col2:
-    #    st.header("Predicted Image")
-    #    st.image(pred_img)    
+     
     img = cv2.resize(img,(512,512))
     pred_img = cv2.resize(pred_img,(512,512))
     #st.subheader("Noisy Image")
