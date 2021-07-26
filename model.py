@@ -39,7 +39,7 @@ def models():
         st.subheader('Noisy Image')
         nsy_img = cv2.imread(option+'.jpg')
         st.image(nsy_img)
-        submit = st.sidebar.button('Predict Now')
+        submit = st.button('Predict Now')
         if submit:
             prediction(nsy_img)
         
