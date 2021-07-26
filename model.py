@@ -7,6 +7,7 @@ import time
 #from PIL import Image
 import os
 from patchify import patchify, unpatchify
+import matplotlib.pyplot as plt
 
 def main():
     selected_box = st.sidebar.selectbox(
@@ -96,9 +97,18 @@ def prediction(img):
     img = cv2.resize(img,(512,512))
     pred_img = cv2.resize(pred_img,(512,512))
     #st.subheader("Noisy Image")
-    cv2.imshow('Noisy Image',img) 
-    #st.subheader("Predicted Image")
-    cv2.imshow('Predicted Image',pred_img)   
+    fig,ax = plt.subplots(1,2,figsize=(10,10))
+    ax[0].imshow(img) 
+    ax[0].get_xaxis().set_visible(False)
+    ax[0].get_yaxis().set_visible(False)
+    ax[0].title.set_text("Noisy Image")
+    
+    ax[1].imshow(pred_img) 
+    ax[1].get_xaxis().set_visible(False)
+    ax[1].get_yaxis().set_visible(False)
+    ax[1].title.set_text("Predicted Image")
+    
+    st.pyplot(fig)
     st.write('Time taken for prediction :', str(round(end-start,3))+' seconds')
     
 if __name__ == "__main__":
