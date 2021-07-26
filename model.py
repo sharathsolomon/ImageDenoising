@@ -35,11 +35,12 @@ def models():
     if sample_data:
         option = st.sidebar.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
         #path = os.path.join(os.getcwd())#,'NOISY/')
-        submit_button = st.form_submit_button(label='Submit')
-        if submit_button:
-            st.subheader(option)
-            nsy_img = cv2.imread(option+'.jpg')
-            st.image(nsy_img)
+       
+        st.subheader('Noisy Image')
+        nsy_img = cv2.imread(option+'.jpg')
+        st.image(nsy_img)
+        submit = st.sidebar.button('Predict Now')
+        if submit:
             prediction(nsy_img)
         
             
