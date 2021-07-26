@@ -54,7 +54,7 @@ def patches(img,patch_size):
 
 @st.cache
 def get_model():
-    RIDNet=tf.keras.models.load_model('RIDNet.h5')
+    RIDNet=tf.keras.models.load_model('RIDNet.h5',custom_objects={'EAM':EAM})
     return RIDNet
 
 def prediction(img):
