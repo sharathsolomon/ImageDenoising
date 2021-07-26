@@ -43,6 +43,7 @@ def models():
             file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
             nsy_img = cv2.imdecode(file_bytes, 1)
             #nsy_img = cv2.imread(image)
+            nsy_img = cv2.cvtColor(nsy_img, cv2.COLOR_BGR2RGB)
             st.image(nsy_img)
             prediction(nsy_img)
         else:
