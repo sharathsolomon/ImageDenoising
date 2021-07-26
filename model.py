@@ -17,7 +17,8 @@ def main():
         
     #readme_text = st.markdown(get_file_content_as_string("README.md"))
     if selected_box == 'About the App':
-        readme('Readme_app.pdf')
+        pdf_display = readme('Readme_app.pdf')
+        st.markdown(pdf_display, unsafe_allow_html=True)
         
     if selected_box == 'Use the App':
         #readme_text.empty()
@@ -28,7 +29,7 @@ def readme(file_path):
     with open(file_path,"rb") as f:
           base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    return pdf_display
     
 def models():
     st.title("Image Denoising using Deep Learning")
