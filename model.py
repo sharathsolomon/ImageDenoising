@@ -43,6 +43,7 @@ def models():
             file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
             nsy_img = cv2.imdecode(file_bytes, 1)
             #nsy_img = cv2.imread(image)
+            st.image(nsy_image)
             prediction(nsy_img)
         else:
             st.text('Please upload the image')
