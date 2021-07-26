@@ -1,3 +1,4 @@
-tensorflow
+tensorflow-cpu
+numpy
 opencv-python-headless
 patchify
