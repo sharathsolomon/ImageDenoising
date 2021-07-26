@@ -33,7 +33,7 @@ def models():
     sample_data = col2.button('Predict on sample images')
     
     if sample_data:
-        option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
+        option = st.selectbox('Select a sample image',('Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'),6)
         #path = os.path.join(os.getcwd())#,'NOISY/')
         if option:
             st.subheader(option)
