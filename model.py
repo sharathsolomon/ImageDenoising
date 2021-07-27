@@ -46,11 +46,11 @@ def models():
                 st.text('Please upload the image')    
     
     if selection=='Predict on sample Images':
-        option = st.selectbox('Select a sample image',('<select>','Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','A note'))
-        #path = os.path.join(os.getcwd())#,'NOISY/')
+        option = st.selectbox('Select a sample image',('<select>','Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','Chess board','A note'))
         if option=='<select>':
             pass
         else:
+            path = os.path.join(os.getcwd()),'NoisyImage/')
             nsy_img = cv2.imread(option+'.jpg')
             prediction(nsy_img)
             
