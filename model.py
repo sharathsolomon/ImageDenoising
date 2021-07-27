@@ -11,7 +11,7 @@ from PIL import Image
 def main():
     selected_box = st.sidebar.selectbox(
         'Choose an option..',
-        ('About the App','Use the App')
+        ('About the App','Denoise Image')
         )
     if selected_box == 'About the App':
         readme=Image.open('readme_app.PNG')
