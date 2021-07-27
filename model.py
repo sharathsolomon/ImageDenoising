@@ -13,18 +13,11 @@ def main():
         'Choose an option..',
         ('About the App','Use the App')
         )
-        
-    #readme_text = st.markdown(get_file_content_as_string("README.md"))
     if selected_box == 'About the App':
-        #st.title("Welcome to AI based Image Denoiser App!")
-        #st.header("Given a noisy image, this webapp will try to remove the noise from the image using Deep Learning.")
-        #st.header("How to use the App")
-        #st.subheader("On the right sidebar, there is a drop down option to make predictions. 
         readme=Image.open('readme_app.PNG')
         st.image(readme)
                 
-    if selected_box == 'Use the App':
-        #readme_text.empty()
+    if selected_box == 'Denoise Image':
         models()
     
 def models():
@@ -36,7 +29,6 @@ def models():
     if selection=="Upload an Image":
         image = st.file_uploader('Upload the image below')
         predict_button = st.button('Predict on uploaded image')
-        #col1,col2 = st.beta_columns(2)
         if predict_button:
             if image is not None:
                 file_bytes = np.asarray(bytearray(image.read()), dtype=np.uint8)
@@ -46,7 +38,7 @@ def models():
                 st.text('Please upload the image')    
     
     if selection=='Predict on sample Images':
-        option = st.selectbox('Select a sample image',('<select>','Toy car','Vegetables','Gadget desk','Srabble board','Shoes','Door','Chess board','A note'))
+        option = st.selectbox('Select a sample image',('<select>','Toy car','Vegetables','Gadget desk','Scrabble board','Shoes','Door','Chess board','A note'))
         if option=='<select>':
             pass
         else:
@@ -85,7 +77,6 @@ def prediction(img):
      
     img = cv2.resize(img,(512,512))
     pred_img = cv2.resize(pred_img,(512,512))
-    #st.subheader("Noisy Image")
     fig,ax = plt.subplots(1,2,figsize=(10,10))
     ax[0].imshow(img) 
     ax[0].get_xaxis().set_visible(False)
