@@ -3,7 +3,6 @@ import cv2
 import numpy as np    
 import tensorflow as tf
 import time
-#from PIL import Image
 import os
 from patchify import patchify, unpatchify
 import matplotlib.pyplot as plt
