@@ -50,8 +50,8 @@ def models():
         if option=='<select>':
             pass
         else:
-            path = os.path.join(os.getcwd()),'NoisyImage/')
-            nsy_img = cv2.imread(option+'.jpg')
+            path = os.path.join(os.getcwd(),'NoisyImage/')
+            nsy_img = cv2.imread(path+option+'.jpg')
             prediction(nsy_img)
             
 def patches(img,patch_size):
