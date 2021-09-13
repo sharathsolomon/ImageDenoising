@@ -7,6 +7,7 @@ import os
 from patchify import patchify, unpatchify
 import matplotlib.pyplot as plt
 from PIL import Image
+import keras
 
 def main():
     selected_box = st.sidebar.selectbox(
