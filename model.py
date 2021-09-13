@@ -50,7 +50,7 @@ def patches(img,patch_size):
   patches = patchify(img, (patch_size, patch_size, 3), step=patch_size)
   return patches
 
-@st.cache
+#@st.cache
 def get_model():
     RIDNet=tf.keras.models.load_model('RIDNet.h5')
     return RIDNet
